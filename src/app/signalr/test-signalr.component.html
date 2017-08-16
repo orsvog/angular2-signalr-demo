@@ -1,0 +1,31 @@
+<h3>This is signalr demo</h3>
+<hr>
+<hr>
+<div class="p-b-10">
+    <span class="width-100">Connection url:</span>
+    <input type="text" [(ngModel)]="options.url" style="width: 400px;" />
+</div>
+<div>
+    <span class="width-100">Connection hubName:</span>
+    <input type="text" [(ngModel)]="options.hubName" />
+    <button (click)="connect()">Connect to server</button>
+</div>
+<hr>
+<button (click)="saveOptions()">Save to localStorage</button>
+<button (click)="loadOptions()">Load from localStorage</button>
+<button (click)="defaultOptions()">Default options from demo (which works!!)</button>
+<hr>
+<i><h4>Info: <b>{{ message }}</b></h4></i>
+<hr>
+<div class="p-b-10">
+    <span class="width-100">Listen name:</span>
+    <input type="text" [(ngModel)]="listenName" />
+    <button (click)="listen()" [disabled]="listenDisabled || !isConnected">listen for message</button>
+</div>
+<div>
+    <span class="width-100">Invoke name:</span>
+    <input type="text" [(ngModel)]="invokeName" />
+    <button (click)="invoke()" [disabled]="!isConnected">invoke message</button>
+</div>
+<hr>
+<div>{{ incomingMessage }}</div>
